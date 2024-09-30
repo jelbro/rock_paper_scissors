@@ -1,5 +1,6 @@
-const human_score = 0;
-const computer_score = 0;
+let human_score = 0;
+let computer_score = 0;
+
 /**
  *A function that generates a random number between 0-2 and
  *returns either rock, paper or scissor depending on the number.
@@ -36,30 +37,47 @@ function getHumanChoice() {
 	}
 }
 
+/**
+ *A function that plays a round of the game, calculates the winner and adds to their score.
+ *
+ * @param {string} human_choice
+ * @param {string} computer_choice
+ */
 function playRound(human_choice, computer_choice) {
 	if (human_choice == 'rock') {
 		if (computer_choice == 'rock') {
 			console.log("It's a draw!");
 		} else if (computer_choice == 'paper') {
 			console.log('Paper beats rock! You lose!');
+			computer_score++;
 		} else if (computer_choice == 'scissors') {
 			console.log('Rock beats scissors! You win!');
+			human_score++;
 		}
 	} else if (human_choice == 'paper') {
 		if (computer_choice == 'rock') {
 			console.log('Paper beats rock! You win!');
+			human_score++;
 		} else if (computer_choice == 'paper') {
 			console.log("It's a draw!");
 		} else if (computer_choice == 'scissors') {
 			console.log('Scissors beat paper! You lose!');
+			computer_score++;
 		}
 	} else if (human_choice == 'scissors') {
 		if (computer_choice == 'rock') {
 			console.log('Rock beats scissors! You lose!');
+			computer_score++;
 		} else if (computer_choice == 'paper') {
 			console.log('Scissors beat paper! You win!');
+			human_score++;
 		} else if (computer_choice == 'scissors') {
 			console.log("It's a draw!");
 		}
 	}
 }
+
+const human_selection = getHumanChoice();
+const computer_selection = getComputerChoice();
+
+playRound(human_selection, computer_selection);
