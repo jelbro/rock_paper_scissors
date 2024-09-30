@@ -35,3 +35,31 @@ function getHumanChoice() {
 		}
 	}
 }
+
+function playRound(human_choice, computer_choice) {
+	if (human_choice == 'rock') {
+		if (computer_choice == 'rock') {
+			console.log("It's a draw!");
+		} else if (computer_choice == 'paper') {
+			console.log('Paper beats rock! You lose!');
+		} else if (computer_choice == 'scissors') {
+			console.log('Rock beats scissors! You win!');
+		}
+	} else if (human_choice == 'paper') {
+		if (computer_choice == 'rock') {
+			console.log('Paper beats rock! You win!');
+		} else if (computer_choice == 'paper') {
+			console.log("It's a draw!");
+		} else if (computer_choice == 'scissors') {
+			console.log('Scissors beat paper! You lose!');
+		}
+	} else if (human_choice == 'scissors') {
+		if (computer_choice == 'rock') {
+			console.log('Rock beats scissors! You lose!');
+		} else if (computer_choice == 'paper') {
+			console.log('Scissors beat paper! You win!');
+		} else if (computer_choice == 'scissors') {
+			console.log("It's a draw!");
+		}
+	}
+}
