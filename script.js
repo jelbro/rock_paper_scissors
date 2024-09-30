@@ -1,3 +1,5 @@
+const human_score = 0;
+const computer_score = 0;
 /**
  *A function that generates a random number between 0-2 and
  *returns either rock, paper or scissor depending on the number.
