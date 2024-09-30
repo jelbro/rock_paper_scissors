@@ -1,1 +1,3 @@
-console.log('Hello World');
+function getComputerChoice() {
+	return computer_choice;
+}
