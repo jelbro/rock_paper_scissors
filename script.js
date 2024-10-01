@@ -83,7 +83,7 @@ function playGame() {
 	const number_of_rounds = 5;
 
 	//for (let round_number = 0; round_number < number_of_rounds; round_number++) {
-	const human_selection = getHumanChoice();
+	//const human_selection = getHumanChoice();
 	const computer_selection = getComputerChoice();
 
 	playRound(human_selection, computer_selection);
