@@ -34,6 +34,10 @@ function getHumanChoice() {
 	}
 }
 
+/**
+ *A function that plays a game depending on how many rounds.
+ *
+ */
 function playGame() {
 	/**
 	 *A function that plays a round of the game, calculates the winner and adds to their score.
