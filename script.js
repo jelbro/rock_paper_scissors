@@ -82,12 +82,12 @@ function playGame() {
 	let computer_score = 0;
 	const number_of_rounds = 5;
 
-	for (let round_number = 0; round_number < number_of_rounds; round_number++) {
-		const human_selection = getHumanChoice();
-		const computer_selection = getComputerChoice();
+	//for (let round_number = 0; round_number < number_of_rounds; round_number++) {
+	const human_selection = getHumanChoice();
+	const computer_selection = getComputerChoice();
 
-		playRound(human_selection, computer_selection);
-	}
+	playRound(human_selection, computer_selection);
+	//}
 	if (human_score > computer_score) {
 		console.log('You Win!');
 	} else if (computer_score > human_score) {
