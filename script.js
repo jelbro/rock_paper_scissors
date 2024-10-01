@@ -41,37 +41,41 @@ function getHumanChoice() {
  * @param {string} computer_choice
  */
 function playRound(human_choice, computer_choice) {
+	const result = document.createElement('div');
+	let human_score = 0;
+	let computer_score = 0;
 	if (human_choice == 'rock') {
 		if (computer_choice == 'rock') {
-			console.log("It's a draw!");
+			result.textContent = "They chose rock! It's a draw!";
 		} else if (computer_choice == 'paper') {
-			console.log('Paper beats rock! You lose!');
+			result.textContent = 'Paper beats rock! You lose!';
 			computer_score++;
 		} else if (computer_choice == 'scissors') {
-			console.log('Rock beats scissors! You win!');
+			result.textContent = 'Rock beats scissors! You win!';
 			human_score++;
 		}
 	} else if (human_choice == 'paper') {
 		if (computer_choice == 'rock') {
-			console.log('Paper beats rock! You win!');
+			result.textContent = 'Paper beats rock! You win!';
 			human_score++;
 		} else if (computer_choice == 'paper') {
-			console.log("It's a draw!");
+			result.textContent = "They chose paper! It's a draw!";
 		} else if (computer_choice == 'scissors') {
-			console.log('Scissors beat paper! You lose!');
+			result.textContent = 'Scissors beat paper! You lose!';
 			computer_score++;
 		}
 	} else if (human_choice == 'scissors') {
 		if (computer_choice == 'rock') {
-			console.log('Rock beats scissors! You lose!');
+			result.textContent = 'Rock beats scissors! You lose!';
 			computer_score++;
 		} else if (computer_choice == 'paper') {
-			console.log('Scissors beat paper! You win!');
+			result.textContent = 'Scissors beat paper! You win!';
 			human_score++;
 		} else if (computer_choice == 'scissors') {
-			console.log("It's a draw!");
+			result.textContent = "They chose scissors, It's a draw!";
 		}
 	}
+	results.appendChild(result);
 }
 /**
  *A function that plays a game depending on how many rounds.
@@ -96,6 +100,7 @@ function playGame() {
 }
 
 const buttons = document.querySelectorAll('button');
+const results = document.querySelector('#results_container');
 
 buttons.forEach((button) => {
 	button.addEventListener('click', () => {
