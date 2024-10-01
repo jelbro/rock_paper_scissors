@@ -35,63 +35,70 @@ function getHumanChoice() {
 }
 
 /**
+ *A function that plays a round of the game, calculates the winner and adds to their score.
+ *
+ * @param {string} human_choice
+ * @param {string} computer_choice
+ */
+function playRound(human_choice, computer_choice) {
+	if (human_choice == 'rock') {
+		if (computer_choice == 'rock') {
+			console.log("It's a draw!");
+		} else if (computer_choice == 'paper') {
+			console.log('Paper beats rock! You lose!');
+			computer_score++;
+		} else if (computer_choice == 'scissors') {
+			console.log('Rock beats scissors! You win!');
+			human_score++;
+		}
+	} else if (human_choice == 'paper') {
+		if (computer_choice == 'rock') {
+			console.log('Paper beats rock! You win!');
+			human_score++;
+		} else if (computer_choice == 'paper') {
+			console.log("It's a draw!");
+		} else if (computer_choice == 'scissors') {
+			console.log('Scissors beat paper! You lose!');
+			computer_score++;
+		}
+	} else if (human_choice == 'scissors') {
+		if (computer_choice == 'rock') {
+			console.log('Rock beats scissors! You lose!');
+			computer_score++;
+		} else if (computer_choice == 'paper') {
+			console.log('Scissors beat paper! You win!');
+			human_score++;
+		} else if (computer_choice == 'scissors') {
+			console.log("It's a draw!");
+		}
+	}
+}
+/**
  *A function that plays a game depending on how many rounds.
  *
  */
 function playGame() {
-	/**
-	 *A function that plays a round of the game, calculates the winner and adds to their score.
-	 *
-	 * @param {string} human_choice
-	 * @param {string} computer_choice
-	 */
-	function playRound(human_choice, computer_choice) {
-		if (human_choice == 'rock') {
-			if (computer_choice == 'rock') {
-				console.log("It's a draw!");
-			} else if (computer_choice == 'paper') {
-				console.log('Paper beats rock! You lose!');
-				computer_score++;
-			} else if (computer_choice == 'scissors') {
-				console.log('Rock beats scissors! You win!');
-				human_score++;
-			}
-		} else if (human_choice == 'paper') {
-			if (computer_choice == 'rock') {
-				console.log('Paper beats rock! You win!');
-				human_score++;
-			} else if (computer_choice == 'paper') {
-				console.log("It's a draw!");
-			} else if (computer_choice == 'scissors') {
-				console.log('Scissors beat paper! You lose!');
-				computer_score++;
-			}
-		} else if (human_choice == 'scissors') {
-			if (computer_choice == 'rock') {
-				console.log('Rock beats scissors! You lose!');
-				computer_score++;
-			} else if (computer_choice == 'paper') {
-				console.log('Scissors beat paper! You win!');
-				human_score++;
-			} else if (computer_choice == 'scissors') {
-				console.log("It's a draw!");
-			}
-		}
-	}
 	let human_score = 0;
 	let computer_score = 0;
 	const number_of_rounds = 5;
 
-	//for (let round_number = 0; round_number < number_of_rounds; round_number++) {
-	//const human_selection = getHumanChoice();
-	const computer_selection = getComputerChoice();
+	for (let round_number = 0; round_number < number_of_rounds; round_number++) {
+		const human_selection = getHumanChoice();
+		const computer_selection = getComputerChoice();
 
-	playRound(human_selection, computer_selection);
-	//}
+		playRound(human_selection, computer_selection);
+	}
 	if (human_score > computer_score) {
 		console.log('You Win!');
 	} else if (computer_score > human_score) {
 		console.log('You lose!');
 	} else console.log('You Drew!');
 }
-playGame();
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+	button.addEventListener('click', () => {
+		playRound(button.id, getComputerChoice());
+	});
+});
