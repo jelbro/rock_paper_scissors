@@ -42,8 +42,11 @@ function getHumanChoice() {
  */
 function playRound(human_choice, computer_choice) {
 	const result = document.createElement('div');
+	const human_score_display = document.createElement('div');
+	const computer_score_display = document.createElement('div');
 	let human_score = 0;
 	let computer_score = 0;
+
 	if (human_choice == 'rock') {
 		if (computer_choice == 'rock') {
 			result.textContent = "They chose rock! It's a draw!";
@@ -75,7 +78,13 @@ function playRound(human_choice, computer_choice) {
 			result.textContent = "They chose scissors, It's a draw!";
 		}
 	}
+	human_score_display.textContent =
+		parseInt(human_score_display.textContent) + human_score;
+	computer_score_display.textContent =
+		parseInt(computer_score_display.textContent) + computer_score;
 	results.appendChild(result);
+	scores.appendChild(human_score_display);
+	scores.appendChild(computer_score_display);
 }
 /**
  *A function that plays a game depending on how many rounds.
@@ -98,7 +107,7 @@ function playGame() {
 		console.log('You lose!');
 	} else console.log('You Drew!');
 }
-
+const scores = document.querySelector('#scores_container');
 const buttons = document.querySelectorAll('button');
 const results = document.querySelector('#results_container');
 
